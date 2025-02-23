@@ -33,10 +33,6 @@ class _ControlsWidgetState extends State<ControlsWidget> {
                 widget.controller.cameraOrbit(0, 75, 120);
                 widget.controller.cameraTarget(0, 0.85, -2.3);
                 widget.controller.autoRotate = false;
-
-                // widget.controllerRight.cameraOrbit(0, 75, 120);
-                // widget.controllerRight.cameraTarget(0, 0.85, -2.3);
-                // widget.controllerRight.autoRotate = false;
               },
               child: Icon(Icons.zoom_in),
             ),
@@ -55,7 +51,6 @@ class _ControlsWidgetState extends State<ControlsWidget> {
         SizedBox(height: 12),
         MovementWidgets(
           controller: widget.controller,
-          // controllerRight: widget.controllerRight,
         ),
 
         SizedBox(height: 12),
@@ -65,7 +60,10 @@ class _ControlsWidgetState extends State<ControlsWidget> {
           children: [
             FloatingActionButton(
               onPressed: () {
-                print("Walk");
+                widget.controller.animationName = "Walking";
+                widget.controller.cameraOrbit(0, 75, 90);
+                widget.controller.cameraTarget(0, 0.85, 0);
+                widget.controller.play(repetitions: 2);
               },
               child: Icon(
                 Icons.directions_walk,
@@ -78,15 +76,14 @@ class _ControlsWidgetState extends State<ControlsWidget> {
             FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  // widget.controllerRight.animationName =
-                  //     Animations.animationData[0].name.toString();
-                  // widget.controllerRight.play();
+                  widget.controller.animationName = "Jog_Jump";
+                  widget.controller.cameraOrbit(0, 75, 90);
+                  widget.controller.cameraTarget(0, 0.85, 0);
+                  widget.controller.play(repetitions: 2);
                 });
               },
               child: Text(
-                Animations.animationData.isNotEmpty
-                    ? Animations.animationData[0].key
-                    : "No Data",
+                "Jump",
               ),
             )
           ],

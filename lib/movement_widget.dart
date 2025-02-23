@@ -30,9 +30,10 @@ class MovementWidgets extends StatelessWidget {
         SizedBox(width: 12),
         FloatingActionButton(
           onPressed: () {
+            _controllerLeft.animationName = "Fall_Idle";
             _controllerLeft.cameraOrbit(0, 75, 90);
             _controllerLeft.cameraTarget(0, 0.85, 0);
-            _controllerLeft.autoRotate = false;
+            _controllerLeft.autoRotate = true;
             // _controllerRight.cameraOrbit(0, 75, 90);
             // _controllerRight.cameraTarget(0, 0.85, 0);
             // _controllerRight.autoRotate = false;

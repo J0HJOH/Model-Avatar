@@ -39,8 +39,9 @@ class _ThreeDModelState extends State<ThreeDModel> {
 
                 environmentImage: 'neutral',
                 cameraOrbit: CameraOrbit(-70, 75, -2.3),
+                cameraTarget: CameraTarget(-0.05, 1, 0),
                 skyboxImage: "assets/scenes/buikslotermeerplein_4k.hdr",
-                animationName: "Fall_Idle",
+                animationName: "F_Talking2",
                 autoPlay: true,
                 cameraControls:
                     isCameraAccesible, //can't control animation by touch
@@ -58,9 +59,9 @@ class _ThreeDModelState extends State<ThreeDModel> {
                 shadowIntensity: 1,
                 environmentImage: 'neutral',
                 cameraOrbit: CameraOrbit(70, 75, 0),
-                cameraTarget: CameraTarget(0, 0.2, 0),
+                cameraTarget: CameraTarget(0.05, 1, 0),
                 skyboxImage: "assets/scenes/buikslotermeerplein_4k.hdr",
-                animationName: "Stand_Wave",
+                animationName: "F_Talking1",
                 autoPlay: true,
                 cameraControls:
                     isCameraAccesible, //can't control animation by touch
