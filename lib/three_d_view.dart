@@ -38,8 +38,10 @@ class _ThreeDModelState extends State<ThreeDModel> {
                 shadowIntensity: 1,
 
                 environmentImage: 'neutral',
-                skyboxImage:
-                    "https://modelviewer.dev/shared-assets/environments/moon_1k.hdr",
+                cameraOrbit: CameraOrbit(-70, 75, -2.3),
+                skyboxImage: "assets/scenes/buikslotermeerplein_4k.hdr",
+                animationName: "Fall_Idle",
+                autoPlay: true,
                 cameraControls:
                     isCameraAccesible, //can't control animation by touch
                 src: "assets/glb/female_animated_avatar.glb",
@@ -55,11 +57,14 @@ class _ThreeDModelState extends State<ThreeDModel> {
                 exposure: 1.2,
                 shadowIntensity: 1,
                 environmentImage: 'neutral',
-                skyboxImage: "assets/scenes/empty_play_room_4k.hdr",
+                cameraOrbit: CameraOrbit(70, 75, 0),
+                cameraTarget: CameraTarget(0, 0.2, 0),
+                skyboxImage: "assets/scenes/buikslotermeerplein_4k.hdr",
+                animationName: "Stand_Wave",
+                autoPlay: true,
                 cameraControls:
                     isCameraAccesible, //can't control animation by touch
-                src:
-                    "https://models.readyplayer.me/67b44ee32808d30f7fa13278.glb",
+                src: "assets/glb/female_animated_avatar.glb",
                 // autoPlay: true,
                 // autoRotate: true,
               ),
@@ -67,15 +72,28 @@ class _ThreeDModelState extends State<ThreeDModel> {
           ],
         ),
 
-        ControlsWidget(
-          
-        )
-      
         // All Controls and animations
-         ControlsWidget(
-          controllerLeft: _avatarAController,
-          controllerRight: _controllerRight,
-          toggleCameraControls: toggleCameraControls,
+        Positioned(
+          bottom: 50,
+          left: 0,
+          right: 0,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Flexible(
+                child: ControlsWidget(
+                  controller: _avatarAController,
+                  toggleCameraControls: toggleCameraControls,
+                ),
+              ),
+              Flexible(
+                child: ControlsWidget(
+                  controller: _controllerRight,
+                  toggleCameraControls: toggleCameraControls,
+                ),
+              ),
+            ],
+          ),
         ),
       ],
     );
