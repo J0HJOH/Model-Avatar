@@ -42,8 +42,7 @@ class _ThreeDModelState extends State<ThreeDModel> {
                     "https://modelviewer.dev/shared-assets/environments/moon_1k.hdr",
                 cameraControls:
                     isCameraAccesible, //can't control animation by touch
-                src:
-                    "https://models.readyplayer.me/67b44ee32808d30f7fa13278.glb",
+                src: "assets/glb/female_animated_avatar.glb",
                 // autoPlay: true,
                 // autoRotate: true,
               ),
@@ -68,36 +67,16 @@ class _ThreeDModelState extends State<ThreeDModel> {
           ],
         ),
 
-        Positioned(
-          bottom: 50,
-          left: 0,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child:
-                // DropdownButton(items: [
-                //   DropdownMenuItem(child: FloatingActionButton(onPressed: (){}, child: Text(""),))
-                // ], onChanged: onChanged)
-
-                FloatingActionButton(
-              onPressed: () {},
-              child: Text("Avatar 1"),
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: 50,
-          right: 0,
-          child: FloatingActionButton(
-            onPressed: () {},
-            child: Text("Avatar 2"),
-          ),
+        ControlsWidget(
+          
         )
+      
         // All Controls and animations
-        // ControlsWidget(
-        //   controllerLeft: _avatarAController,
-        //   controllerRight: _controllerRight,
-        //   toggleCameraControls: toggleCameraControls,
-        // ),
+         ControlsWidget(
+          controllerLeft: _avatarAController,
+          controllerRight: _controllerRight,
+          toggleCameraControls: toggleCameraControls,
+        ),
       ],
     );
   }
